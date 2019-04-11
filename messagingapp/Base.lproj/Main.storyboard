@@ -43,6 +43,11 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="wNg-H2-if2">
+                        <barButtonItem key="leftBarButtonItem" systemItem="edit" id="4HC-j5-dEC">
+                            <connections>
+                                <action selector="editButton:" destination="BYZ-38-t0r" id="3af-yc-zdE"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="compose" id="M4s-ip-Wpj">
                             <connections>
                                 <segue destination="8Fc-pc-QMx" kind="presentation" id="1Up-vD-wcR"/>
@@ -56,6 +61,21 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="892" y="794"/>
+        </scene>
+        <!--Second View Controller-->
+        <scene sceneID="Bsy-ue-Lyj">
+            <objects>
+                <viewController id="NTr-K6-Mdy" customClass="SecondViewController" customModule="messagingapp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ymY-XC-nGc">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="GxC-Hv-i3u"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IhF-VV-V9k" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1657" y="115"/>
         </scene>
         <!--Compose View Controller-->
         <scene sceneID="HbN-uA-Djm">
