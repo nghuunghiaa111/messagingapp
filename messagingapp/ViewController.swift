@@ -12,6 +12,7 @@ import FirebaseDatabase
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var editButtonLabel: UIBarButtonItem!
     
     var ref: DatabaseReference?
     var databaseHandle: DatabaseHandle?
@@ -77,10 +78,12 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     @IBAction func editButton(_ sender: Any) {
         if (check == true) {
             tableView.isEditing = true
+            editButtonLabel.title = "Done"
             check = false
         }
         else {
             tableView.isEditing = false
+            editButtonLabel.title = "Edit"
             check = true
         }
     }
