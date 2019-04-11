@@ -16,6 +16,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     var ref: DatabaseReference?
     var databaseHandle: DatabaseHandle?
     
+    var check = true
+    
     var postData = [String]()
     
     override func viewDidLoad() {
@@ -73,7 +75,14 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     @IBAction func editButton(_ sender: Any) {
-        tableView.isEditing = true
+        if (check == true) {
+            tableView.isEditing = true
+            check = false
+        }
+        else {
+            tableView.isEditing = false
+            check = true
+        }
     }
    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
