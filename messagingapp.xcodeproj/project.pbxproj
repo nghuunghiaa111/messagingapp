@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3F9E46A5225B903C0043428B /* ComposeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9E46A4225B903C0043428B /* ComposeViewController.swift */; };
+		3FC1F4982260F84F009B1B03 /* TextModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FC1F4972260F84F009B1B03 /* TextModel.swift */; };
 		3FE496EF225F817000EC1735 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE496EE225F817000EC1735 /* SecondViewController.swift */; };
 		3FF0076B225B3AD100D050EA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF0076A225B3AD100D050EA /* AppDelegate.swift */; };
 		3FF0076D225B3AD100D050EA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF0076C225B3AD100D050EA /* ViewController.swift */; };
@@ -20,6 +21,7 @@
 
 /* Begin PBXFileReference section */
 		3F9E46A4225B903C0043428B /* ComposeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComposeViewController.swift; sourceTree = "<group>"; };
+		3FC1F4972260F84F009B1B03 /* TextModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextModel.swift; sourceTree = "<group>"; };
 		3FE496EE225F817000EC1735 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		3FF00767225B3AD100D050EA /* messagingapp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = messagingapp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3FF0076A225B3AD100D050EA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -71,6 +73,7 @@
 				3FF0076C225B3AD100D050EA /* ViewController.swift */,
 				3F9E46A4225B903C0043428B /* ComposeViewController.swift */,
 				3FE496EE225F817000EC1735 /* SecondViewController.swift */,
+				3FC1F4972260F84F009B1B03 /* TextModel.swift */,
 				3FF0076E225B3AD100D050EA /* Main.storyboard */,
 				3FF00771225B3AD300D050EA /* Assets.xcassets */,
 				3FF00773225B3AD300D050EA /* LaunchScreen.storyboard */,
@@ -223,6 +226,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3FE496EF225F817000EC1735 /* SecondViewController.swift in Sources */,
+				3FC1F4982260F84F009B1B03 /* TextModel.swift in Sources */,
 				3F9E46A5225B903C0043428B /* ComposeViewController.swift in Sources */,
 				3FF0076D225B3AD100D050EA /* ViewController.swift in Sources */,
 				3FF0076B225B3AD100D050EA /* AppDelegate.swift in Sources */,

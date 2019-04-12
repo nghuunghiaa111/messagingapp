@@ -19,7 +19,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     var check = true
     
-    var postData = [String]()
+    var postData = [TextModel]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,20 +28,34 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         tableView.dataSource = self
         
         // Set the database reference
-        ref = Database.database().reference()
-        
-        // Retrive the posts and listen for changes
-        databaseHandle = ref?.child("Posts").observe(.childAdded, with: { (snapshot) in
-            
-            // Code to execute  when a child is added under "Posts"
-            // Take the value from the snapshot and add it to the postData array
-            let post = snapshot.value as? String
-            if let actualPost = post {
-                self.postData.append(actualPost)
+        ref = Database.database().reference().child("Posts")
+        ref?.observe(DataEventType.value, with: { (snapshot) in
+            if snapshot.childrenCount>0 {
+                self.postData.removeAll()
+                
+                for Posts in snapshot.children.allObjects as! [DataSnapshot] {
+                    let postObject = Posts.value as? [String: AnyObject]
+                    let text = postObject?["text"]
+                    let key = postObject?["key"]
+                    
+                    let post = TextModel(key: key as! String?, text: text as! String?)
+                    self.postData.append(post)
+                }
                 self.tableView.reloadData()
             }
-            
         })
+        
+        // Retrive the posts and listen for changes
+//        databaseHandle = ref?.child("Posts").observe(.childAdded, with: { (snapshot) in
+//
+//            // Code to execute  when a child is added under "Posts"
+//            // Take the value from the snapshot and add it to the postData array
+//            let post = snapshot.value as? String
+//            if let actualPost = post {
+//                self.postData.append(actualPost)
+//                self.tableView.reloadData()
+//            }
+//        })
     }
     
     func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
@@ -57,20 +71,29 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "PostCell")
-        cell?.textLabel?.text = postData[indexPath.row]
-        return cell!
+        let cell = tableView.dequeueReusableCell(withIdentifier: "PostCell", for: indexPath)
+        let post: TextModel
+        post = postData[indexPath.row]
+        cell.textLabel?.text = post.text
+        //cell?.textLabel?.text = postData[indexPath.row]
+        return cell
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if (editingStyle == UITableViewCell.EditingStyle.delete) {
+            let post: TextModel
+            post = postData[indexPath.row]
+            let key = post.key
+            ref = Database.database().reference()
+            ref?.child("Posts").child(key!).removeValue()
+            //key.remove(at: indexPath.row)
             postData.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .automatic)
         }
     }
     
     func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
-        let temp:String = postData.remove(at: sourceIndexPath.row)
+        let temp:TextModel = postData.remove(at: sourceIndexPath.row)
         
         postData.insert(temp, at: destinationIndexPath.row)
     }
