@@ -13,7 +13,7 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="messagingapp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ViewController" id="BYZ-38-t0r" customClass="ViewController" customModule="messagingapp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -66,17 +66,34 @@
         <!--Second View Controller-->
         <scene sceneID="Bsy-ue-Lyj">
             <objects>
-                <viewController id="NTr-K6-Mdy" customClass="SecondViewController" customModule="messagingapp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SecondViewController" id="NTr-K6-Mdy" customClass="SecondViewController" customModule="messagingapp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ymY-XC-nGc">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="dqm-P1-3Cp">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="dqm-P1-3Cp" firstAttribute="leading" secondItem="GxC-Hv-i3u" secondAttribute="leading" id="0QG-R7-fLB"/>
+                            <constraint firstItem="dqm-P1-3Cp" firstAttribute="top" secondItem="GxC-Hv-i3u" secondAttribute="top" id="TSo-dh-Kgn"/>
+                            <constraint firstItem="dqm-P1-3Cp" firstAttribute="bottom" secondItem="GxC-Hv-i3u" secondAttribute="bottom" id="vap-xZ-dxO"/>
+                            <constraint firstItem="dqm-P1-3Cp" firstAttribute="trailing" secondItem="GxC-Hv-i3u" secondAttribute="trailing" id="wOh-dB-XiI"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="GxC-Hv-i3u"/>
                     </view>
+                    <connections>
+                        <outlet property="textView" destination="dqm-P1-3Cp" id="HzC-Sq-eIl"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IhF-VV-V9k" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1657" y="115"/>
+            <point key="canvasLocation" x="1656.8" y="114.69265367316342"/>
         </scene>
         <!--Compose View Controller-->
         <scene sceneID="HbN-uA-Djm">

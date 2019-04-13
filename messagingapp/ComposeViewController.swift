@@ -26,9 +26,11 @@ class ComposeViewController: UIViewController {
     @IBAction func addPost(_ sender: Any) {
         
         // TODO: Post the data to Firebase
-        let key = ref?.childByAutoId().key
-        let post = ["key": key, "text": textView.text]
-        ref?.child("Posts").child(key!).setValue(post)
+        if textView.text != "" {
+            let key = ref?.childByAutoId().key
+            let post = ["key": key, "text": textView.text]
+            ref?.child("Posts").child(key!).setValue(post)
+        }
         // Dismiss the popover
         presentingViewController?.dismiss(animated: true, completion: nil)
         

@@ -7,13 +7,39 @@
 //
 
 import UIKit
+import FirebaseDatabase
 
 class SecondViewController: UIViewController {
 
+    @IBOutlet weak var textView: UITextView!
+    
+    var ref: DatabaseReference?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(SecondViewController.touch(sender:)))
+        self.navigationItem.rightBarButtonItem = addButton
+        
+        ref = Database.database().reference()
+        textView.text = out
+       
+        
+//        if (addButton.action != nil) {
+//            ref?.child("Posts").child(ID).setValue(textView.text)
+//            print("Hello mother fucker")
+//        }
+        
+    
+    }
+    
+    @objc func touch(sender: UIBarButtonItem) {
+        let post : [String:Any] = ["key": ID, "text": textView.text!]
+        ref?.child("Posts").child(ID).setValue(post)
+        
+        let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+        let firstVC = storyBoard.instantiateViewController(withIdentifier: "ViewController") as! ViewController
+        self.navigationController?.pushViewController(firstVC, animated: true)
     }
     
 

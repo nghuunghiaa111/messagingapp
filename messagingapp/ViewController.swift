@@ -9,6 +9,9 @@
 import UIKit
 import FirebaseDatabase
 
+var ID = String()
+var out = String()
+
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var tableView: UITableView!
@@ -112,10 +115,16 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        // Go to next ViewController
         let storyBoard = UIStoryboard(name: "Main", bundle: nil)
         let secondVC = storyBoard.instantiateViewController(withIdentifier: "SecondViewController") as! SecondViewController
         self.navigationController?.pushViewController(secondVC, animated: true)
+        
+        // Send key
+        let post: TextModel
+        post = postData[indexPath.row]
+        out = post.text!
+        ID = post.key!
     }
-    
 }
 
