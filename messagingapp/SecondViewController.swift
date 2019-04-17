@@ -34,8 +34,13 @@ class SecondViewController: UIViewController {
     }
     
     @objc func touch(sender: UIBarButtonItem) {
-        let post : [String:Any] = ["key": ID, "text": textView.text!]
-        ref?.child("Posts").child(ID).setValue(post)
+        if textView.text != "" {
+            while (textView.text[textView.text.index(before: textView.text.endIndex)] == " ") {
+                textView.text.remove(at: textView.text.index(before: textView.text.endIndex))
+            }
+            let post : [String:Any] = ["key": ID, "text": textView.text!]
+            ref?.child("Posts").child(ID).setValue(post)
+        }
         
         let storyBoard = UIStoryboard(name: "Main", bundle: nil)
         let firstVC = storyBoard.instantiateViewController(withIdentifier: "ViewController") as! ViewController

@@ -24,9 +24,11 @@ class ComposeViewController: UIViewController {
     }
     
     @IBAction func addPost(_ sender: Any) {
-        
         // TODO: Post the data to Firebase
         if textView.text != "" {
+            while (textView.text[textView.text.index(before: textView.text.endIndex)] == " ") {
+                textView.text.remove(at: textView.text.index(before: textView.text.endIndex))
+            }
             let key = ref?.childByAutoId().key
             let post = ["key": key, "text": textView.text]
             ref?.child("Posts").child(key!).setValue(post)
