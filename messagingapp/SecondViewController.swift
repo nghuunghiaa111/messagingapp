@@ -44,7 +44,7 @@ class SecondViewController: UIViewController {
         
         let storyBoard = UIStoryboard(name: "Main", bundle: nil)
         let firstVC = storyBoard.instantiateViewController(withIdentifier: "ViewController") as! ViewController
-        self.navigationController?.pushViewController(firstVC, animated: true)
+        self.navigationController?.popViewController(animated: true)
     }
     
 
